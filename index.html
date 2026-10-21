@@ -1625,7 +1625,6 @@
                 margin: 0 15px;
             }
             
-            /* Modification importante pour afficher 2 produits par ligne */
             .products {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
@@ -1724,7 +1723,6 @@
                 font-size: 1rem;
             }
             
-            /* Ajustement pour très petits écrans */
             .products {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1912,11 +1910,11 @@
 <b>Parce que former, c'est transmettre. Et transmettre, c'est impacter une génération pour Christ.</b></p>
                     
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=61573744664996"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://wa.me/22997196323" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61573744664996" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/message/SQBVZWZ2UXRMK1" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.tiktok.com/@ibtab0?_r=1&_t=ZG-9Ak86yy6paC" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://youtube.com/@paulyenou-c4e?si=urqBZ_KqkOZHu9J0"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/toutestgrae_store?vrfl=bWF3eXZsMmVya3pz"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@paulyenou-c4e?si=urqBZ_KqkOZHu9J0" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/toutestgrae_store?vrfl=bWF3eXZsMmVya3pz" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -2041,7 +2039,7 @@
                 
                 <div class="footer-column">
                     <h3>Contact</h3>
-                    <a href="https://wa.me/22997196323" target="_blank">WhatsApp: +229 97 19 63 23</a>
+                    <a href="https://wa.me/message/SQBVZWZ2UXRMK1" target="_blank">WhatsApp: +229 97 19 63 23</a>
                     <a href="mailto:info@toutestgrace.com"></a>
                 </div>
             </div>
@@ -2080,7 +2078,7 @@
     </div>
 
     <!-- Icône WhatsApp -->
-    <a href="https://wa.me/22997196323" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/message/SQBVZWZ2UXRMK1" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -2287,7 +2285,6 @@
             
             // Fonction pour optimiser le chargement des images
             function optimizeImageLoading() {
-                // Préchargement des images critiques
                 const criticalImages = [
                     '/profilda1.png',
                     '/gallerie1.png',
@@ -2301,12 +2298,10 @@
                     img.src = src;
                 });
                 
-                // Système de fallback pour les images manquantes
                 document.addEventListener('DOMContentLoaded', function() {
                     const images = document.querySelectorAll('img');
                     images.forEach(img => {
                         img.addEventListener('error', function() {
-                            // Remplacer par une image placeholder si l'image originale ne charge pas
                             this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTVlNWU1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vbiBkaXNwb25pYmxlPC90ZXh0Pjwvc3ZnPg==';
                             this.alt = 'Image non disponible';
                         });
@@ -2345,7 +2340,6 @@
                     productsContainer.appendChild(productElement);
                 });
                 
-                // Réinitialiser les contrôles de quantité
                 document.querySelectorAll('.quantity-controls').forEach(control => {
                     const minusBtn = control.querySelector('.minus');
                     const plusBtn = control.querySelector('.plus');
@@ -2362,14 +2356,12 @@
                     });
                 });
                 
-                // Ajout au panier
                 document.querySelectorAll('.add-to-cart').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const id = parseInt(btn.getAttribute('data-id'));
                         const product = products.find(p => p.id === id);
                         const quantity = parseInt(btn.parentElement.querySelector('.quantity-input').value);
                         
-                        // Vérifier si le produit est déjà dans le panier
                         const existingItem = cart.find(item => item.id === product.id);
                         
                         if (existingItem) {
@@ -2389,7 +2381,6 @@
                     });
                 });
                 
-                // Observer pour le lazy loading des images
                 if ('IntersectionObserver' in window) {
                     const imageObserver = new IntersectionObserver((entries, observer) => {
                         entries.forEach(entry => {
@@ -2407,37 +2398,31 @@
                 }
             }
             
-            // Fonction pour afficher la notification
             function showNotification() {
                 cartNotification.classList.add('active');
-                
                 setTimeout(() => {
                     cartNotification.classList.remove('active');
                 }, 3000);
             }
             
-            // Fonction pour filtrer et trier les produits
             function filterAndSortProducts() {
                 let filteredProducts = [...products];
                 const searchTerm = searchInput.value.toLowerCase();
                 const filterValue = filterSelect.value;
                 const sortValue = sortSelect.value;
                 
-                // Filtrage par recherche
                 if (searchTerm) {
                     filteredProducts = filteredProducts.filter(product => 
                         product.name.toLowerCase().includes(searchTerm)
                     );
                 }
                 
-                // Filtrage par catégorie
                 if (filterValue !== 'all') {
                     filteredProducts = filteredProducts.filter(product => 
                         product.category === filterValue
                     );
                 }
                 
-                // Tri
                 switch(sortValue) {
                     case 'price-asc':
                         filteredProducts.sort((a, b) => a.price - b.price);
@@ -2451,34 +2436,25 @@
                     case 'name-desc':
                         filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
                         break;
-                    default:
-                        // Par défaut, ordre original
-                        break;
                 }
                 
                 renderProducts(filteredProducts);
             }
             
-            // Événements pour le filtrage et le tri
             sortSelect.addEventListener('change', filterAndSortProducts);
             filterSelect.addEventListener('change', filterAndSortProducts);
             searchInput.addEventListener('input', filterAndSortProducts);
             searchButton.addEventListener('click', filterAndSortProducts);
             
-            // Initialiser l'affichage des produits
             renderProducts(products);
-            
-            // Optimiser le chargement des images
             optimizeImageLoading();
             
-            // Menu mobile
             mobileMenuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
                     '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
             
-            // Fermer le menu en cliquant sur un lien
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
@@ -2486,7 +2462,6 @@
                 });
             });
             
-            // Ouvrir/fermer le panier
             cartIcon.addEventListener('click', () => {
                 cartSidebar.classList.add('active');
             });
@@ -2495,7 +2470,6 @@
                 cartSidebar.classList.remove('active');
             });
             
-            // Mise à jour du panier
             function updateCart() {
                 cartItemsContainer.innerHTML = '';
                 let total = 0;
@@ -2527,7 +2501,6 @@
                     cartItemsContainer.appendChild(cartItem);
                 });
                 
-                // Calculer le total avec réduction si applicable
                 let discountedPrice = total;
                 if (appliedCoupon) {
                     discountedPrice = total * (1 - appliedCoupon.discount / 100);
@@ -2549,7 +2522,6 @@
                 
                 cartCount.textContent = count;
                 
-                // Ajouter les événements pour les boutons de quantité dans le panier
                 document.querySelectorAll('.cart-item .minus').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const id = parseInt(btn.getAttribute('data-id'));
@@ -2594,7 +2566,6 @@
                 });
             }
             
-            // Passer la commande
             checkoutBtn.addEventListener('click', () => {
                 if (cart.length === 0) {
                     alert('Votre panier est vide!');
@@ -2605,12 +2576,10 @@
                 orderModal.classList.add('active');
             });
             
-            // Fermer le modal
             closeModalBtn.addEventListener('click', () => {
                 orderModal.classList.remove('active');
             });
             
-            // Soumission du formulaire
             orderForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
@@ -2620,13 +2589,11 @@
                 const city = document.getElementById('city').value;
                 const phone = document.getElementById('phone').value;
                 
-                // Calculer le total avec réduction si applicable
                 let total = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
                 if (appliedCoupon) {
                     total = total * (1 - appliedCoupon.discount / 100);
                 }
                 
-                // Préparer le message pour WhatsApp
                 let whatsappMessage = `Bonjour, je souhaite commander les documents suivants:%0A%0A`;
                 
                 cart.forEach(item => {
@@ -2644,15 +2611,11 @@
                 whatsappMessage += `Pays: ${country}%0A`;
                 whatsappMessage += `Ville: ${city}%0A`;
                 whatsappMessage += `Téléphone: ${phone}%0A`;
-                
-                // Message automatique
                 whatsappMessage += `%0AMessage: Je suis intéressé par ces documents et je souhaite finaliser ma commande. Merci de me contacter pour le processus de paiement et de livraison.`;
                 
-                // Rediriger vers WhatsApp
-                window.location.href = `https://wa.me/22997196323?text=${whatsappMessage}`;
+                window.location.href = `https://wa.me/message/SQBVZWZ2UXRMK1?text=${whatsappMessage}`;
             });
             
-            // Galerie manuelle
             let currentSlide = 0;
             const slides = document.querySelectorAll('.gallery-item');
             const dots = document.querySelectorAll('.gallery-dot');
@@ -2676,11 +2639,9 @@
                 showSlide(prevIndex);
             }
             
-            // Événements pour la galerie
             document.getElementById('next-slide').addEventListener('click', nextSlide);
             document.getElementById('prev-slide').addEventListener('click', prevSlide);
             
-            // Navigation par points
             dots.forEach(dot => {
                 dot.addEventListener('click', () => {
                     const index = parseInt(dot.getAttribute('data-index'));
@@ -2688,10 +2649,8 @@
                 });
             });
             
-            // Changer d'image toutes les 6 secondes
             setInterval(nextSlide, 6000);
             
-            // Témoignages
             let currentTestimonial = 0;
             const testimonials = document.querySelectorAll('.testimonial');
             
@@ -2711,14 +2670,11 @@
                 showTestimonial(prevIndex);
             }
             
-            // Événements pour les témoignages
             document.getElementById('next-testimonial').addEventListener('click', nextTestimonial);
             document.getElementById('prev-testimonial').addEventListener('click', prevTestimonial);
             
-            // Changer de témoignage toutes les 8 secondes
             setInterval(nextTestimonial, 8000);
             
-            // Fermer le panier en cliquant à l'extérieur
             document.addEventListener('click', (e) => {
                 if (!cartSidebar.contains(e.target) && !cartIcon.contains(e.target) && cartSidebar.classList.contains('active')) {
                     cartSidebar.classList.remove('active');
